@@ -1,0 +1,18 @@
+.item {
+    width: 150px;
+    height: 250px;
+    border: 1px solid black;
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    &__title {
+        font-size: 24px;
+    }
+
+    &__description {
+        font-size: 18px;
+    }
+}

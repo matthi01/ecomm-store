@@ -4,11 +4,18 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from "react-router-dom";
+import cartReducer from './store/reducers/cartreducer';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+const store = createStore(cartReducer);
 
 const app = (
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 );
 
 ReactDOM.render(app, document.getElementById('root'));

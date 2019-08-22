@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 
 import Layout from "./containers/layout/layout"
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from "./containers/home/home"
 import Cart from "./containers/cart/cart"
 
