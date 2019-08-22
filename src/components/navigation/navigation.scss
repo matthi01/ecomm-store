@@ -1,0 +1,50 @@
+.navigation {
+    height: 50px;
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: 50px;
+        text-decoration: none;
+        color: white;
+    }
+
+    &__menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100%;
+        margin-right: 50px;
+
+        &__item {
+            min-width: 100px;
+            background-color: darkgrey;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            position: relative;
+            text-decoration: none;
+            color: white;
+
+            &:hover {
+                background-color: darken(darkgrey, 50%);
+                transition: 1s;
+            }
+
+            &:active {
+                background-color: white;
+                transition: .2s;
+            }
+        }
+        
+    }
+}
