@@ -1,17 +1,45 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import Item from "../../components/item/item"
+import StoreItem from "../../components/storeItem/storeItem"
 import "./home.scss"
+import * as actionCreators from '../../store/actions/index';
 
 class Home extends React.Component {
 
+    componentDidMount() {
+        const storeItems = [{
+            id: 0,
+            title: "test 1",
+            description: "this is test 1",
+            quantity: 3
+        },{
+            id: 1,
+            title: "test 2",
+            description: "this is test 2",
+            quantity: 4
+        }]
+
+        this.props.addStoreItems(storeItems)
+    }
+
     render() {
-        let itemsList = this.props.items.map((el) => {
-            return (
-                <Item key={el.id} id={ el.id } title={ el.title } description={ el.description } />
-            )
-        })
+        let itemsList = null
+
+        if (this.props.storeItems) {
+            itemsList = this.props.storeItems.map((el) => {
+                return (
+                    <StoreItem 
+                        key={el.id} 
+                        id={ el.id } 
+                        title={ el.title } 
+                        description={ el.description } 
+                        total={ el.quantity }
+                        inCart={ el.inCart }
+                        onAddHandler={ () => this.props.addItemToCart(el) } />
+                )
+            })
+        }
 
         return (
             <div>
@@ -27,8 +55,15 @@ class Home extends React.Component {
 
 const mapStateToProps = (state)=>{
     return {
-        items: state.items
+        storeItems: state.store.storeItems
     }
 }
 
-export default connect(mapStateToProps)(Home)
+const mapDispatchToProps= (dispatch) => {
+    return {
+        addStoreItems: (items) => dispatch(actionCreators.addStoreItems(items)),
+        addItemToCart: (item) => dispatch(actionCreators.addItemToCart(item))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

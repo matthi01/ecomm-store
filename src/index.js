@@ -4,11 +4,17 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from "react-router-dom";
-import cartReducer from './store/reducers/cartreducer';
+import cartReducer from './store/reducers/cartReducer';
+import storeReducer from './store/reducers/storeReducer';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-const store = createStore(cartReducer);
+const rootReducer = combineReducers({
+    store: storeReducer,
+    cart: cartReducer
+});
+
+const store = createStore(rootReducer);
 
 const app = (
     <Provider store={store}>

@@ -1,0 +1,41 @@
+.cart-item {
+    height: 150px;
+    width: 80%;
+    max-width: 1200px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 50px auto;
+    padding: 25px;
+
+    &__delete {
+        // ...
+    }
+
+    &__image {
+        background-color: black;
+        height: 75px;
+        width: 75px;
+    }
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        &__title {
+            font-size: 24px;
+        }
+
+        &__description {
+            font-size: 18px;
+        }
+    }
+
+    &__quantity-selector {
+        // ...
+    }
+}

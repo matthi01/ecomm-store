@@ -1,17 +1,15 @@
 import * as actionTypes from './actionTypes';
 
-export const addItem = (id, title, description) => {
+export const addItemToCart = (item) => {
     return {
-        type: actionTypes.ADD_ITEM,
-        itemId: id,
-        itemTitle: title,
-        itemDescription: description
+        type: actionTypes.ADD_ITEM_TO_CART,
+        item: item
     };
 };
 
-export const deleteItem = (id) => {
+export const deleteItemFromCart = (id) => {
     return {
-        type: actionTypes.DELETE_ITEM,
+        type: actionTypes.DELETE_ITEM_FROM_CART,
         itemId: id
     };
 };

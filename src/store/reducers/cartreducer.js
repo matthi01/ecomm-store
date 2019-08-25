@@ -1,38 +1,26 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    items: [{
-        id: 0,
-        title: "test 1",
-        description: "this is test 1",
-        quantity: 3
-    },{
-        id: 1,
-        title: "test 2",
-        description: "this is test 2",
-        quantity: 4
-    }],
+    cartItems: []
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.ADD_ITEM:
+        case actionTypes.ADD_ITEM_TO_CART:
             const newItem = {
-                id: action.itemId,
-                title: action.itemTitle,
-                description: action.itemDescription
+                ...action.item,
+                inCart: true
             };
             return {
-                ...state,
-                items: state.items.concat(newItem)
+                cartItems: state.cartItems.concat(newItem)
             };
-        case actionTypes.DELETE_ITEM:
-            const newItems = state.items.filter((el) => {
+        case actionTypes.DELETE_ITEM_FROM_CART:
+            const newItems = state.cartItems.filter((el) => {
                 return el.id !== action.itemId
             })
             return {
                 ...state,
-                items: newItems
+                cartItems: newItems
             };
         case actionTypes.CHANGE_QUANTITY:
             return {

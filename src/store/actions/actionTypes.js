@@ -1,3 +1,4 @@
-export const ADD_ITEM = 'ADD_ITEM';
-export const DELETE_ITEM = 'DELETE_ITEM';
+export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
+export const DELETE_ITEM_FROM_CART = 'DELETE_ITEM_FROM_CART';
 export const CHANGE_QUANTITY = 'CHANGE_QUANTITY';
+export const ADD_STORE_ITEMS = 'ADD_STORE_ITEMS';
