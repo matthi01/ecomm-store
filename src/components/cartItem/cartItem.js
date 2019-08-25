@@ -6,12 +6,16 @@ import DeleteButton from "../UI/deleteButton/deleteButton"
 
 import * as actionCreators from '../../store/actions/index';
 
-
 const cartItem = (props) => {
+
+    const deleteButtonHandler = (id) => {
+        props.deleteItemFromCart(id)
+        props.removeInCartIndicator(id)
+    }
     return (
         <div className="cart-item">
             <div className="cart-item__delete">
-                <DeleteButton onDeleteButtonClick={ () => props.deleteItemFromCart(props.id) } />
+                <DeleteButton onDeleteButtonClick={ () => deleteButtonHandler(props.id) } />
             </div>
             <div className="cart-item__image"></div>
             <div className="cart-item__block">
@@ -35,7 +39,8 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps= (dispatch) => {
     return {
-        deleteItemFromCart: (id) => dispatch(actionCreators.deleteItemFromCart(id))
+        deleteItemFromCart: (id) => dispatch(actionCreators.deleteItemFromCart(id)),
+        removeInCartIndicator: (id) => dispatch(actionCreators.removeInCartIndicator(id))
     }
 }
 

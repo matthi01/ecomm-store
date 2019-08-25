@@ -6,3 +6,17 @@ export const addStoreItems = (items) => {
         storeItems: items
     };
 };
+
+export const setInCartIndicator = (id) => {
+    return {
+        type: actionTypes.SET_IN_CART_INDICATOR,
+        itemId: id
+    }
+};
+
+export const removeInCartIndicator = (id) => {
+    return {
+        type: actionTypes.REMOVE_IN_CART_INDICATOR,
+        itemId: id
+    }
+};

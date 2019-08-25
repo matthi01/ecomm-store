@@ -8,13 +8,14 @@ import cartReducer from './store/reducers/cartReducer';
 import storeReducer from './store/reducers/storeReducer';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers({
     store: storeReducer,
     cart: cartReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools());
 
 const app = (
     <Provider store={store}>

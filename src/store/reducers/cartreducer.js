@@ -9,7 +9,6 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_ITEM_TO_CART:
             const newItem = {
                 ...action.item,
-                inCart: true
             };
             return {
                 cartItems: state.cartItems.concat(newItem)
