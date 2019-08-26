@@ -5,6 +5,7 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
+    let updatedCartItems = null
     switch (action.type) {
         case actionTypes.ADD_ITEM_TO_CART:
             const newItem = {
@@ -14,18 +15,31 @@ const reducer = (state = initialState, action) => {
                 cartItems: state.cartItems.concat(newItem)
             };
         case actionTypes.DELETE_ITEM_FROM_CART:
-            const newItems = state.cartItems.filter((el) => {
+            updatedCartItems = state.cartItems.filter((el) => {
                 return el.id !== action.itemId
             })
             return {
                 ...state,
-                cartItems: newItems
+                cartItems: updatedCartItems
             };
-        case actionTypes.CHANGE_QUANTITY:
+        case actionTypes.INCREMENT_QUANTITY:
+            updatedCartItems = state.cartItems.map((el) => {
+                if (el.id !== action.itemId) { return el }
+                return { ...el, quantity: ++el.quantity }
+            })
             return {
                 ...state,
-                quantity: action.itemQuantity
+                cartItems: updatedCartItems
             };
+        case actionTypes.DECREMENT_QUANTITY:
+                updatedCartItems = state.cartItems.map((el) => {
+                    if (el.id !== action.itemId) { return el }
+                    return { ...el, quantity: --el.quantity  }
+                })
+                return {
+                    ...state,
+                    cartItems: updatedCartItems
+                };
         default:
             return state;
     }

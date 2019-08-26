@@ -20,9 +20,9 @@ const cartItem = (props) => {
             </div>
             <div className="cart-item__image"></div>
             <QuantityToggle 
-                total={ 0 }
-                decrementClicked={ props.decrementQuantity } 
-                incrementClicked={ props.incrementQuantity } />
+                total={ props.quantity }
+                decrementClicked={ () => props.decrementQuantity(props.id) } 
+                incrementClicked={ () => props.incrementQuantity(props.id) } />
             <div className="cart-item__block">
                 <div className="cart-item__block__title">
                     { props.title }
@@ -46,8 +46,8 @@ const mapDispatchToProps= (dispatch) => {
     return {
         deleteItemFromCart: (id) => dispatch(actionCreators.deleteItemFromCart(id)),
         removeInCartIndicator: (id) => dispatch(actionCreators.removeInCartIndicator(id)),
-        incrementQuantity: (id) => console.log("increment"),
-        decrementQuantity: (id) => console.log("decrement")
+        incrementQuantity: (id) => dispatch(actionCreators.incrementQuantity(id)),
+        decrementQuantity: (id) => dispatch(actionCreators.decrementQuantity(id))
     }
 }
 

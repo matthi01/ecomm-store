@@ -1,2 +1,2 @@
-export { addItemToCart, deleteItemFromCart, changeQuantity } from './cartActions';
+export { addItemToCart, deleteItemFromCart, incrementQuantity, decrementQuantity } from './cartActions';
 export { addStoreItems, setInCartIndicator, removeInCartIndicator } from './storeActions';

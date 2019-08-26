@@ -14,10 +14,16 @@ export const deleteItemFromCart = (id) => {
     };
 };
 
-export const changeQuantity = (id, quantity) => {
+export const incrementQuantity = (id) => {
     return {
-        type: actionTypes.CHANGE_QUANTITY,
-        itemId: id,
-        itemQuantity: quantity
+        type: actionTypes.INCREMENT_QUANTITY,
+        itemId: id
+    };
+};
+
+export const decrementQuantity = (id) => {
+    return {
+        type: actionTypes.DECREMENT_QUANTITY,
+        itemId: id
     };
 };

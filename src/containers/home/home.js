@@ -11,27 +11,32 @@ class Home extends React.Component {
         const storeItems = [{
             id: 0,
             title: "test 1",
-            description: "this is test 1",
+            description: "this is a longer test description test test",
+            quantity: 1,
             inCart: false
         }, {
             id: 1,
             title: "test 2",
-            description: "this is test 2",
+            description: "this is a longer test description test test",
+            quantity: 1,
             inCart: false
         }, {
             id: 2,
             title: "test 3",
-            description: "this is test 3",
+            description: "this is a longer test description test test",
+            quantity: 1,
             inCart: false
         }, {
             id: 3,
             title: "test 4",
-            description: "this is test 4",
+            description: "this is a longer test description test test",
+            quantity: 1,
             inCart: false
         }, {
             id: 4,
             title: "test 5",
-            description: "this is test 5",
+            description: "this is a longer test description test test",
+            quantity: 1,
             inCart: false
         }]
 

@@ -1,5 +1,5 @@
 .cart-item {
-    height: 150px;
+    min-height: 150px;
     width: 80%;
     max-width: 1200px;
     border: 1px solid white;
@@ -11,10 +11,7 @@
     padding: 35px;
     background-color: rgb(46, 49, 49);
     color: white;
-
-    &__delete {
-        // ...
-    }
+    position: relative;
 
     &__image {
         background-color: black;
@@ -28,6 +25,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+        width: 50%;
 
         &__title {
             font-size: 24px;
@@ -36,9 +34,5 @@
         &__description {
             font-size: 18px;
         }
-    }
-
-    &__quantity-selector {
-        // ...
     }
 }
