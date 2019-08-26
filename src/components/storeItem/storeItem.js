@@ -10,6 +10,7 @@ const storeItem = (props) => {
     return (
         <div className="item">
             <div className="item__title">{ props.title }</div>
+            <div className="item__image"></div>
             <div className="item__description">{ props.description }</div>
             { button }
         </div>

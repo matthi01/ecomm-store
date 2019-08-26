@@ -1,11 +1,14 @@
 .navigation {
     height: 50px;
-    background-color: grey;
+    background-color: #111316;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 
     &__title {
         font-size: 24px;
@@ -34,6 +37,7 @@
             position: relative;
             text-decoration: none;
             color: white;
+            font-size: 14px;
 
             &:hover {
                 background-color: darken(darkgrey, 50%);

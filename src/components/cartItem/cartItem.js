@@ -3,6 +3,7 @@ import "./cartItem.scss"
 import { connect } from "react-redux"
 
 import DeleteButton from "../UI/deleteButton/deleteButton"
+import QuantityToggle from "../../components/UI/quantity-toggle/quantity-toggle"
 
 import * as actionCreators from '../../store/actions/index';
 
@@ -18,6 +19,10 @@ const cartItem = (props) => {
                 <DeleteButton onDeleteButtonClick={ () => deleteButtonHandler(props.id) } />
             </div>
             <div className="cart-item__image"></div>
+            <QuantityToggle 
+                total={ 0 }
+                decrementClicked={ props.decrementQuantity } 
+                incrementClicked={ props.incrementQuantity } />
             <div className="cart-item__block">
                 <div className="cart-item__block__title">
                     { props.title }
@@ -40,7 +45,9 @@ const mapStateToProps = (state)=>{
 const mapDispatchToProps= (dispatch) => {
     return {
         deleteItemFromCart: (id) => dispatch(actionCreators.deleteItemFromCart(id)),
-        removeInCartIndicator: (id) => dispatch(actionCreators.removeInCartIndicator(id))
+        removeInCartIndicator: (id) => dispatch(actionCreators.removeInCartIndicator(id)),
+        incrementQuantity: (id) => console.log("increment"),
+        decrementQuantity: (id) => console.log("decrement")
     }
 }
 
