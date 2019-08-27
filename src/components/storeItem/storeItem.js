@@ -5,7 +5,7 @@ import { withRouter } from 'react-router'
 
 const storeItem = (props) => {
 
-    const button = props.inCart ? <ActionButton onClickHandler={ () => props.history.push('/cart') } label="Go to Cart" /> : <ActionButton onClickHandler={ props.onAddHandler } label="Add to Cart" />
+    const button = props.inCart ? <ActionButton onClickHandler={ () => props.history.push('/cart') } type="cart" /> : <ActionButton onClickHandler={ props.onAddHandler } type="add" />
 
     return (
         <div className="item">
