@@ -1,20 +1,22 @@
+@import "../../helpers/parameters.scss";
+
 .cart-item {
     min-height: 150px;
     width: 80%;
     max-width: 1200px;
-    border: 1px solid white;
+    border: 1px solid $color-border;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 50px auto;
     padding: 35px;
-    background-color: rgb(46, 49, 49);
-    color: white;
+    background-color: $color-item-background;
+    color: $color-text;
     position: relative;
 
     &__image {
-        background-color: black;
+        background-color: $color-dark-black;
         height: 75px;
         width: 125px;
     }

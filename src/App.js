@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Layout from "./containers/layout/layout"
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from "./containers/home/home"

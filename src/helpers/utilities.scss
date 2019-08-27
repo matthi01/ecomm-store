@@ -1,0 +1,10 @@
+@mixin button-activation-styles {
+    &:hover {
+        background-color: #2e3131;
+        transition: all .2s;
+    }
+
+    &:active {
+        transform: translateY(1.5px);
+    }
+}

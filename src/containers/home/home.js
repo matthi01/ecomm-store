@@ -13,31 +13,36 @@ class Home extends React.Component {
             title: "test 1",
             description: "this is a longer test description test test",
             quantity: 1,
-            inCart: false
+            inCart: false,
+            price: 9.99
         }, {
             id: 1,
             title: "test 2",
             description: "this is a longer test description test test",
             quantity: 1,
-            inCart: false
+            inCart: false,
+            price: 9.99
         }, {
             id: 2,
             title: "test 3",
             description: "this is a longer test description test test",
             quantity: 1,
-            inCart: false
+            inCart: false,
+            price: 9.99
         }, {
             id: 3,
             title: "test 4",
             description: "this is a longer test description test test",
             quantity: 1,
-            inCart: false
+            inCart: false,
+            price: 9.99
         }, {
             id: 4,
             title: "test 5",
             description: "this is a longer test description test test",
             quantity: 1,
-            inCart: false
+            inCart: false,
+            price: 9.99
         }]
 
         if (this.props.storeItems.length === 0) {
@@ -63,6 +68,7 @@ class Home extends React.Component {
                         description={ el.description } 
                         total={ el.quantity }
                         inCart={ el.inCart }
+                        price={ el.price }
                         onAddHandler={ () => this.addItemToCartHandler(el) } />
                 )
             })

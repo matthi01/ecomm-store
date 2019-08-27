@@ -1,3 +1,6 @@
+@import "../../../helpers/utilities.scss";
+@import "../../../helpers/parameters.scss";
+
 .quantity-toggle {
     display: flex;
     flex-direction: row;
@@ -11,16 +14,18 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid white;
+        border: 1px solid $color-border;
         position: relative;
         z-index: 1;
-        background-color: black;
-        color: white;
+        background-color: $color-button-background;
+        color: $color-text;
         font-size: 12px;
+
+        @include button-activation-styles;
     }
 
     &__quantity {
-        border: 1px solid white;
+        border: 1px solid $color-button-border;
         height: 20px;
         width: 60px;
         display: flex;
