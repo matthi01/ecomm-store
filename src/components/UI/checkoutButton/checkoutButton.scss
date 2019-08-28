@@ -1,0 +1,8 @@
+@import "../../../helpers/parameters.scss";
+
+.checkout-button {
+    height: 40px;
+    width: 150px;
+    background-color: $color-button-background;
+    color: $color-button-text;
+}

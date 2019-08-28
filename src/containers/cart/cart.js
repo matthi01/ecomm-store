@@ -1,7 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
 import CartItem from "../../components/cartItem/cartItem"
-
+import Total from "../../components/total/total"
+import "../layout/page.scss"
 import * as actionCreators from '../../store/actions/index';
 
 const cart = (props) => {
@@ -21,13 +22,14 @@ const cart = (props) => {
     }
     
     return (
-        <div>
-            <div>Cart</div>
-            { cartItems }
+        <div className="page">
+            <div className="page__container">
+                { cartItems }
+                <Total />
+            </div>
         </div>
     )
 }
-
 
 const mapStateToProps = (state)=>{
     return {

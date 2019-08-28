@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 import StoreItem from "../../components/storeItem/storeItem"
-import "./home.scss"
+import "../layout/page.scss"
 import * as actionCreators from '../../store/actions/index';
 
 class Home extends React.Component {
@@ -75,8 +75,7 @@ class Home extends React.Component {
         }
 
         return (
-            <div>
-                <div className="page__title">Home</div>
+            <div className="page">
                 <div className="page__container">
                     { itemsList }
                 </div>
