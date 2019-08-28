@@ -1,19 +1,23 @@
 import React from "react"
 import "./navigation.scss"
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faReact } from '@fortawesome/free-brands-svg-icons'
 
 const navigation = (props) => {
     return (
-        <div className="navigation">
-            <Link className="navigation__title" to="/">Title</Link>
+        <nav className="navigation">
+            <Link className="navigation__title-section" to="/">
+                <FontAwesomeIcon className="navigation__logo" icon={faReact} />
+                <div className="navigation__title">Title</div>
+            </Link>
             <div className="navigation__menu">
-                <Link className="navigation__menu__item" to="/">Store</Link>
-                <Link className="navigation__menu__item" to="/cart"><FontAwesomeIcon icon={faShoppingCart} /></Link>
+                <Link className={ "navigation__menu__item" + (props.location.pathname === "/" ? " navigation__menu__item__active" : "" )}  to="/"><FontAwesomeIcon icon={faHome} /></Link>
+                <Link className={ "navigation__menu__item" + (props.location.pathname === "/cart" ? " navigation__menu__item__active" : "") } to="/cart"><FontAwesomeIcon icon={faShoppingCart} /></Link>
             </div>
-        </div>
+        </nav>
     )
 }
 
-export default navigation
+export default withRouter(navigation)
