@@ -25,7 +25,7 @@ const cartItem = (props) => {
                 incrementClicked={ () => props.incrementQuantity(props.id) } />
             <div className="cart-item__block">
                 <div className="cart-item__block__title">
-                    { props.title }
+                    ${ props.price } - { props.title }
                 </div>
                 <div className="cart-item__block__description">
                     { props.description }

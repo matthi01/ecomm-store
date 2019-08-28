@@ -4,6 +4,24 @@ import { connect } from "react-redux"
 import CheckoutButton from "../UI/checkoutButton/checkoutButton"
 
 const total = (props) => {
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+    let priceArray = []
+    let totalPrice = 0
+
+    if (props.cartItems.length > 0) {
+        priceArray = props.cartItems.map((el) => {
+            return el.price * el.quantity
+        })
+
+        totalPrice = priceArray.reduce(reducer)
+    }
+
+    priceArray = props.cartItems.map((el) => {
+        return el.price * el.quantity
+    })
+
     let totalContent = (
         <div className="total__no-items">
             Your cart is empty!
@@ -13,7 +31,7 @@ const total = (props) => {
         totalContent = (
             <>
                 <div className="total__amount">
-                    Cart total: $ { props.cartItems.length }
+                    Cart total: ${ totalPrice.toFixed(2) }
                 </div>
                 <div className="total__checkout-button">
                     <CheckoutButton />
