@@ -3,9 +3,19 @@ import { connect } from "react-redux"
 import CartItem from "../../components/cartItem/cartItem"
 import Total from "../../components/total/total"
 import "../layout/page.scss"
-import * as actionCreators from '../../store/actions/index';
+import * as actionCreators from '../../store/actions/index'
+import Notification from "../../components/notification/notification"
+import Expire from "../../hoc/expire/expire"
+
+let notification = null
 
 const cart = (props) => {
+
+    const deleteButtonHandler = (id) => {
+        props.deleteItemFromCart(id)
+        props.removeInCartIndicator(id)
+        notification = <Expire delay={ 2000 }><Notification text="Item deleted!" type="delete" /></Expire>
+    }
     
     let cartItems = null
     if (props.cartItems.length > 0) {
@@ -17,7 +27,10 @@ const cart = (props) => {
                     title={ el.title } 
                     description={ el.description }
                     quantity={ el.quantity }
-                    price={ el.price } />
+                    price={ el.price }
+                    onDeleteHandler={ deleteButtonHandler }
+                    onIncrementHandler={ props.incrementQuantity }
+                    onDecrementHandler={ props.decrementQuantity } />
             )
         })
     }
@@ -27,6 +40,7 @@ const cart = (props) => {
             <div className="page__container">
                 { cartItems }
                 <Total />
+                { notification }
             </div>
         </div>
     )
@@ -40,8 +54,10 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps= (dispatch) => {
     return {
-        addStoreItems: (items) => dispatch(actionCreators.addStoreItems(items)),
-        addItemToCart: (item) => dispatch(actionCreators.addItemToCart(item))
+        deleteItemFromCart: (id) => dispatch(actionCreators.deleteItemFromCart(id)),
+        removeInCartIndicator: (id) => dispatch(actionCreators.removeInCartIndicator(id)),
+        incrementQuantity: (id) => dispatch(actionCreators.incrementQuantity(id)),
+        decrementQuantity: (id) => dispatch(actionCreators.decrementQuantity(id))
     }
 }
 
