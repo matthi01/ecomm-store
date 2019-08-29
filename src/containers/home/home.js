@@ -1,9 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
-
 import StoreItem from "../../components/storeItem/storeItem"
 import "../layout/page.scss"
-import * as actionCreators from '../../store/actions/index';
+import * as actionCreators from '../../store/actions/index'
+import Notification from "../../components/notification/notification"
+import Expire from "../../hoc/expire/expire"
 
 class Home extends React.Component {
 
@@ -50,9 +51,12 @@ class Home extends React.Component {
         }
     }
 
+    notification = null
+
     addItemToCartHandler = (item) => {
         this.props.addItemToCart(item)
         this.props.setInCartIndicator(item.id)
+        this.notification = <Expire delay={ 2000 }><Notification text="Item added!" type="add" /></Expire>
     }
 
     render() {
@@ -78,6 +82,7 @@ class Home extends React.Component {
             <div className="page">
                 <div className="page__container">
                     { itemsList }
+                    { this.notification }
                 </div>
             </div>
             
